@@ -1,0 +1,8 @@
+FROM centos@sha256:0584b3d2cf6d235ee310cf14b54667d889887b838d3f3d3033acd70fc3c48b8a
+MAINTAINER "Jeff Nickoloff" <jeff@allingeek.com>
+ENTRYPOINT ["/usr/bin/guestfish"]
+CMD ["-h"]
+ENV LIBGUESTFS_BACKEND direct
+RUN yum -y install libguestfs-tools && \
+    yum -y update && \
+    yum clean all
